@@ -20,11 +20,22 @@
 
 / {
     behaviors {
-        td0: tap_dance_0 {
+        td0: td0 {
             compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_0";
+            label = "TD0";
+            #binding-cells = <0>;
+            bindings = <&kt FSLH>, <&kt ESC>;
+
             tapping-term-ms = <150>;
-            bindings = <&kp FSLH>, <&kp ESC>;
+        };
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        NUM {
+            if-layers = <1 2>;
+            then-layer = <3>;
         };
     };
 
@@ -42,7 +53,7 @@
             bindings = <
 &kp TAB    &kp Q               &kp W  &kp E     &kp R            &kp T                       &kp Y      &kp U      &kp I      &kp O    &kp P                 &kp BSPC
 &kp LCTRL  &mt LEFT_SHIFT A    &kp S  &kp D     &kp F            &kp G                       &kp H      &kp J      &kp K      &kp L    &mt RIGHT_SHIFT SEMI  &kp SQT
-&kp LSHFT  &mt LEFT_CONTROL Z  &kp X  &kp C     &kp V            &kp B                       &kp N      &kp M      &kp COMMA  &kp DOT  &td0                  &kp ESC
+&kp LSHFT  &mt LEFT_CONTROL Z  &kp X  &kp C     &kp V            &kp B                       &kp N      &kp M      &kp COMMA  &kp DOT  &none                 &kp ESC
                                       &kp LGUI  &lt 1 BACKSPACE  &mt RS(RC(RA(RGUI))) RET    &kp SPACE  &lt 2 ESC  &kp RALT
             >;
         };
@@ -76,6 +87,22 @@
 &kp LCTRL  &kp LSHFT  &none   &none     &none     &none                       &kp MINUS  &kp EQUAL  &kp LBKT      &kp RBKT  &kp BSLH  &kp GRAVE
 &kp LSHFT  &kp LCTRL  &none   &none     &none     &none                       &kp UNDER  &kp PLUS   &kp LBRC      &kp RBRC  &kp PIPE  &kp TILDE
                               &kp LGUI  &trans    &mt RS(RC(RA(RGUI))) RET    &kp SPACE  &trans     &kp RALT
+            >;
+        };
+
+        num_layer {
+            // -----------------------------------------------------------------------------------------
+            // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
+            // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
+            // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
+            //                    | GUI |     | ENT |   | SPC |     | ALT |
+
+            label = "Number";
+            bindings = <
+&kp TAB    &kp TAB    &kp AT    &kp HASH  &kp DLLR  &kp PRCNT                   &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &kp BSPC
+&kp LCTRL  &kp LSHFT  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT                   &kp MINUS  &kp EQUAL  &kp LBKT         &kp RBKT  &kp BSLH  &kp GRAVE
+&kp LSHFT  &kp LCTRL  &kp EXCL  &trans    &trans    &trans                      &kp UNDER  &kp PLUS   &kp LBRC         &kp RBRC  &kp PIPE  &kp TILDE
+                                &kp LGUI  &trans    &mt RS(RC(RA(RGUI))) RET    &kp SPACE  &trans     &kp RALT
             >;
         };
     };
