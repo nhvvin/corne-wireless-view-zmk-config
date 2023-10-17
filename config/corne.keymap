@@ -46,6 +46,14 @@
 
             tapping-term-ms = <300>;
         };
+        td_backspace: td_backspace {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_BACKSPACE";
+            #binding-cells = <0>;
+            bindings = <&kp P>, <&kp BACKSPACE>;
+
+            tapping-term-ms = <300>;
+        };
     };
 
     conditional_layers {
@@ -69,10 +77,10 @@
 
             label = "Base";
             bindings = <
-&kp TAB    &td_tab      &kp W  &kp E     &kp R            &kp T                       &kp Y      &kp U      &kp I      &kp O    &kp P                 &kp BSPC
-&kp LCTRL  &td_shift    &kp S  &kp D     &kp F            &kp G                       &kp H      &kp J      &kp K      &kp L    &mt RIGHT_SHIFT SEMI  &kp SQT
-&kp LSHFT  &td_control  &kp X  &kp C     &kp V            &kp B                       &kp N      &kp M      &kp COMMA  &kp DOT  &td0                  &kp ESC
-                               &kp LGUI  &lt 1 BACKSPACE  &mt RS(RC(RA(RGUI))) RET    &kp SPACE  &lt 2 ESC  &kp RALT
+&kp TAB    &td_tab  &kp W  &kp E     &kp R            &kp T                       &kp Y      &kp U      &kp I      &kp O    &kp P                   &kp BSPC
+&kp LCTRL  &kp A    &kp S  &kp D     &kp F            &kp G                       &kp H      &kp J      &kp K      &kp L    &mt RIGHT_SHIFT SEMI    &kp SQT
+&kp LSHFT  &kp Z    &kp X  &kp C     &kp V            &kp B                       &kp N      &kp M      &kp COMMA  &kp DOT  &mt FSLH RIGHT_CONTROL  &kp ESC
+                           &kp LGUI  &lt 1 BACKSPACE  &mt RS(RC(RA(RGUI))) RET    &kp SPACE  &lt 2 ESC  &kp RALT
             >;
         };
 
@@ -85,9 +93,9 @@
 
             label = "Lower";
             bindings = <
-&kp TAB     &kp N1        &kp N2        &kp N3        &kp N4        &kp N5                      &kp N6     &kp N7    &kp N8    &kp N9     &kp N0   &kp BSPC
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                &kp LEFT   &kp DOWN  &kp UP    &kp RIGHT  &kp SQT  &trans
-&kp LSHFT   &bt BT_CLR    &trans        &trans        &trans        &trans                      &trans     &trans    &trans    &kp BSPC   &kp ESC  &trans
+&kp TAB     &kp N1        &kp N2        &kp N3        &kp N4        &kp N5                      &kp N6     &kp N7    &kp N8    &kp N9     &kp BACKSPACE  &kp BSPC
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                &kp LEFT   &kp DOWN  &kp UP    &kp RIGHT  &kp SQT        &trans
+&kp LSHFT   &bt BT_CLR    &trans        &trans        &trans        &trans                      &trans     &trans    &trans    &kp BSPC   &kp ESC        &trans
                                         &kp LGUI      &trans        &mt RS(RC(RA(RGUI))) RET    &kp SPACE  &trans    &kp RALT
             >;
         };
@@ -101,10 +109,10 @@
 
             label = "Raise";
             bindings = <
-&kp TAB    &kp TAB    &kp AT    &kp HASH   &kp DLLR   &kp PRCNT        &kp CARET  &kp AMPS   &kp ASTERISK  &kp LPAR  &kp RPAR  &kp BSPC
-&kp LCTRL  &kp LSHFT  &kp EXCL  &kp GRAVE  &kp TILDE  &kp SQT          &kp MINUS  &kp EQUAL  &kp LBKT      &kp RBKT  &kp BSLH  &kp GRAVE
-&kp LSHFT  &kp LCTRL  &none     &none      &none      &none            &kp UNDER  &kp PLUS   &kp LBRC      &kp RBRC  &kp PIPE  &kp TILDE
-                                &kp LGUI   &trans     &kp BACKSPACE    &kp SPACE  &trans     &kp RALT
+&kp TAB    &kp TAB    &kp AT    &kp HASH   &kp DLLR    &kp PRCNT        &kp CARET  &kp AMPS   &kp ASTERISK  &kp LPAR  &kp RPAR  &kp BSPC
+&kp LCTRL  &kp LSHFT  &kp EXCL  &kp GRAVE  &kp TILDE   &kp SQT          &kp MINUS  &kp EQUAL  &kp LBKT      &kp RBKT  &kp BSLH  &kp GRAVE
+&kp LSHFT  &kp LCTRL  &none     &kp COMMA  &kp PERIOD  &kp SEMICOLON    &kp UNDER  &kp PLUS   &kp LBRC      &kp RBRC  &kp PIPE  &kp TILDE
+                                &kp LGUI   &trans      &kp BACKSPACE    &kp SPACE  &trans     &kp RALT
             >;
         };
 
@@ -117,9 +125,9 @@
 
             label = "Number";
             bindings = <
-&kp TAB    &kp TAB    &kp AT    &kp HASH  &kp DLLR  &kp PRCNT                   &kp CARET  &kp N7  &kp N8    &kp N9  &kp RPAR  &kp BSPC
-&kp LCTRL  &kp LSHFT  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT                   &kp MINUS  &kp N4  &kp N5    &kp N6  &kp BSLH  &kp GRAVE
-&kp LSHFT  &kp LCTRL  &kp EXCL  &trans    &trans    &trans                      &kp UNDER  &kp N1  &kp N2    &kp N3  &kp PIPE  &kp TILDE
+&kp TAB    &kp TAB    &kp AT    &kp HASH  &kp DLLR  &kp PRCNT                   &kp CARET  &kp N7  &kp N8    &kp N9  &kp BACKSPACE      &kp BSPC
+&kp LCTRL  &kp LSHFT  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT                   &kp MINUS  &kp N4  &kp N5    &kp N6  &kp RIGHT_SHIFT    &kp GRAVE
+&kp LSHFT  &kp LCTRL  &kp EXCL  &trans    &trans    &trans                      &kp UNDER  &kp N1  &kp N2    &kp N3  &kp RIGHT_CONTROL  &kp TILDE
                                 &kp LGUI  &trans    &mt RS(RC(RA(RGUI))) RET    &kp SPACE  &trans  &kp RALT
             >;
         };
