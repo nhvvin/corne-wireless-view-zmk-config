@@ -22,6 +22,7 @@
 
             tapping-term-ms = <300>;
         };
+
         td_tab: td_tab {
             compatible = "zmk,behavior-tap-dance";
             label = "TD_TAB";
@@ -30,6 +31,7 @@
 
             tapping-term-ms = <300>;
         };
+
         td_control: td_control {
             compatible = "zmk,behavior-tap-dance";
             label = "TD_CONTROL";
@@ -38,6 +40,7 @@
 
             tapping-term-ms = <300>;
         };
+
         td_shift: td_shift {
             compatible = "zmk,behavior-tap-dance";
             label = "TD_SHIFT";
@@ -46,6 +49,7 @@
 
             tapping-term-ms = <300>;
         };
+
         td_backspace: td_backspace {
             compatible = "zmk,behavior-tap-dance";
             label = "TD_BACKSPACE";
@@ -111,7 +115,7 @@
             bindings = <
 &kp TAB    &kp TAB    &kp AT    &kp HASH   &kp DLLR    &kp PRCNT        &kp CARET  &kp AMPS   &kp ASTERISK  &kp LPAR  &kp RPAR  &kp BSPC
 &kp LCTRL  &kp LSHFT  &kp EXCL  &kp GRAVE  &kp TILDE   &kp SQT          &kp MINUS  &kp EQUAL  &kp LBKT      &kp RBKT  &kp BSLH  &kp GRAVE
-&kp LSHFT  &kp LCTRL  &none     &kp COMMA  &kp PERIOD  &kp SEMICOLON    &kp UNDER  &kp PLUS   &kp LBRC      &kp RBRC  &kp PIPE  &kp TILDE
+&kp LSHFT  &kp LCTRL  &kp FSLH  &kp COMMA  &kp PERIOD  &kp SEMICOLON    &kp UNDER  &kp PLUS   &kp LBRC      &kp RBRC  &kp PIPE  &kp TILDE
                                 &kp LGUI   &trans      &kp BACKSPACE    &kp SPACE  &trans     &kp RALT
             >;
         };
@@ -125,10 +129,10 @@
 
             label = "Number";
             bindings = <
-&kp TAB    &kp TAB    &kp AT    &kp HASH  &kp DLLR  &kp PRCNT                   &kp PLUS   &kp N7  &kp N8    &kp N9  &kp BACKSPACE      &kp BSPC
-&kp LCTRL  &kp LSHFT  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT                   &kp MINUS  &kp N4  &kp N5    &kp N6  &kp RIGHT_SHIFT    &kp GRAVE
-&kp LSHFT  &kp LCTRL  &kp EXCL  &trans    &trans    &trans                      &kp N0     &kp N1  &kp N2    &kp N3  &kp RIGHT_CONTROL  &kp TILDE
-                                &kp LGUI  &trans    &mt RS(RC(RA(RGUI))) RET    &kp SPACE  &trans  &kp RALT
+&kp TAB    &kp TAB    &kp AT     &kp HASH  &kp DLLR   &kp PRCNT                   &kp PLUS   &kp N7  &kp N8    &kp N9  &kp BACKSPACE      &kp BSPC
+&kp LCTRL  &kp LSHFT  &kp CARET  &kp AMPS  &kp ASTRK  &kp LPAR                    &kp MINUS  &kp N4  &kp N5    &kp N6  &kp RIGHT_SHIFT    &kp GRAVE
+&kp LSHFT  &kp LCTRL  &kp EXCL   &kp LT    &kp GT     &kp RPAR                    &kp N0     &kp N1  &kp N2    &kp N3  &kp RIGHT_CONTROL  &kp TILDE
+                                 &kp LGUI  &trans     &mt RS(RC(RA(RGUI))) RET    &kp SPACE  &trans  &kp RALT
             >;
         };
     };
